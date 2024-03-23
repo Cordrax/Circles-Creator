@@ -1,15 +1,13 @@
 from PIL import Image
 from math import *
 
-r = int(input("Entrer le rayon : "))
-c = 4 * r
-im = Image.new("RGBA", (c,c), "white")
-cen = int(c/2)
-ep = 0
-im.putpixel((cen,cen), (255,0,0))
-for y in range(cen-r, cen+r):
-        x = cen -1 - int(sqrt(r**2 - (y-cen)**2))
-        print(x)
+radius = int(input("Entrer le rayon : "))
+image_size = 4 * radius
+im = Image.new("RGBA", (image_size, image_size), "white")
+center_cos = int(c/2)
+im.putpixel((center_cos, center_cos), (255,0,0))
+for y in range(center_cos - radius, center_cos + radius):
+        x = cen -1 - int(sqrt(radius**2 - ( y - center_cos)**2))
         im.putpixel((x,y), (0,0,0))
         im.putpixel((-x,y), (0,0,0))
         im.putpixel((x,-y), (0,0,0))
